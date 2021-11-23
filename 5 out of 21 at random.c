@@ -12,12 +12,12 @@ int main(int argc, char const *argv[])
         {
           if (a[i]==a[j])
           {
-              break; 
+              break; /*如果当前取到的随机数和之前的随机数相同，就提前结束循环（此时j<i）*/
           }
         }
         if(i==j)
-             printf("%d\t", a[i]);   
+             printf("%d\t", a[i]);   /* 如果i=j说明上面的循环执行结束也没有时随机数也没有重复，所以可以输出新的随机数 */
         else
-              i--;
+              i--;  //确保输出的随机数数量是5个
     }
 }
