@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+main()
+{
+    int b,a[100],c,i,j;//本来我想用的数组是a[b],但不符合语法，所以只能改成具体数字，一般也不会有人用这么简陋的函数排序100个数字，熟悉基本够用了。
+    printf("请输入需要排序的数字的个数");
+    scanf("%d",&b);
+    printf("请依次输入需要排序的数字，并用空格隔开");
+    for(i=0;i<b;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<b;i++)
+    {
+        for(j=0;j<b;j++)
+             if(a[i]<a[j])
+             {
+                 c=a[i];
+                 a[i]=a[j];
+                 a[j]=c;
+             }
+
+    }
+    for(i=0;i<b;i++)
+    {
+        printf("%d\t",a[i]);
+    }
+}
