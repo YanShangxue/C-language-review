@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int card[54];
+    int i;
+    for ( i = 0; i < 54; i++)
+    {
+        if (i/13==0)
+        {
+            printf("红桃%02d\t", i % 13 + 1); /* code */
+        }
+        else if (i/13==1)
+        {
+            printf("黑桃%02d\t", i % 13 + 1); /* code */
+        }
+        else if (i/13==2)
+        {
+            printf("方块%02d\t", i % 13 + 1); /* code */
+        }
+        else if (i/13==3)
+        {
+            printf("梅花%02d\t", i % 13 + 1); /* code */
+        }
+        else if (i/13==3)
+        {
+            printf("梅花%02d\t", i % 13 + 1); /* code */
+        }
+        else if (i==52)
+        {
+            printf("大王\t"); /* code */
+        }
+        else if (i==53)
+        {
+            printf("小王\t"); /* code */
+        }
+        if ((i+1)%13==0)
+        {
+            printf("\n"); /* code */
+        }
+
+    }
+}
