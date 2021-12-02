@@ -1,16 +1,31 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
-int main()
+int card[54];
+int i;
+void init();
+void mix();
+void show();
+
+void main()
 {
-    int card[54];
-    int i;
-    srand(time(NULL));
+    srand(time(NULL));  //调用time来初始化随机数
+    init();
+    mix();
+    show();
+    return;
+}
+
+void init()   //初始化扑克牌
+{
     for( i = 0; i < 54; i++)
     {
         card[i] = i;
     }
-    //混牌
+}
+
+void mix()    //混牌
+{
     for (i = 0; i < 30;i++)
     {
         int a = rand() % 54;
@@ -18,8 +33,11 @@ int main()
         int t = card[a];
         card[a] = card[b];
         card[b] = t;
-    }
+    }//初始化扑克牌
+}
 
+void show()   //显示
+{
     for (i = 0; i < 54; i++)
     {
         if (card[i]/ 13 == 0)
@@ -56,3 +74,4 @@ int main()
         }
     }
 }
+
