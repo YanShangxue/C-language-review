@@ -7,13 +7,12 @@ void init();
 void mix();
 void show();
 
-void main()
+int main()
 {
     srand(time(NULL));  //调用time来初始化随机数
     init();
     mix();
     show();
-    return;
 }
 
 void init()   //初始化扑克牌
@@ -38,35 +37,21 @@ void mix()    //混牌
 
 void show()   //显示
 {
+    char styles[4][5] = {"红桃", "黑桃", "梅花", "方块"};
+    char number[13][3]={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     for (i = 0; i < 54; i++)
     {
-        if (card[i]/ 13 == 0)
-        {
-            printf("红桃%02d\t", card[i]% 13 + 1); /* code */
-        }
-        else if (card[i] / 13 == 1)
-        {
-            printf("黑桃%02d\t", card[i]% 13 + 1); /* code */
-        }
-        else if (card[i]/ 13 == 2)
-        {
-            printf("方块%02d\t", card[i]% 13 + 1); /* code */
-        }
-        else if (card[i] / 13 == 3)
-        {
-            printf("梅花%02d\t", card[i]% 13 + 1); /* code */
-        }
-        else if (card[i]/ 13 == 3)
-        {
-            printf("梅花%02d\t", card[i]% 13 + 1); /* code */
-        }
-        else if (card[i] == 52)
+        if (card[i] == 52)
         {
             printf("大王\t"); /* code */
         }
         else if (card[i] == 53)
         {
             printf("小王\t"); /* code */
+        }
+        else 
+        {
+            printf("%s%s\t",styles[card[i]/13],number[card[i]%13]); /* code */
         }
         if ((i+1) % 17 == 0)
         {
