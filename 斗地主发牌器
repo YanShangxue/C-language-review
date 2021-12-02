@@ -1,43 +1,58 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 int main()
 {
     int card[54];
     int i;
-    for ( i = 0; i < 54; i++)
+    srand(time(NULL));
+    for( i = 0; i < 54; i++)
     {
-        if (i/13==0)
+        card[i] = i;
+    }
+    //混牌
+    for (i = 0; i < 30;i++)
+    {
+        int a = rand() % 54;
+        int b = rand() % 54;
+        int t = card[a];
+        card[a] = card[b];
+        card[b] = t;
+    }
+
+    for (i = 0; i < 54; i++)
+    {
+        if (card[i]/ 13 == 0)
         {
-            printf("红桃%02d\t", i % 13 + 1); /* code */
+            printf("红桃%02d\t", card[i]% 13 + 1); /* code */
         }
-        else if (i/13==1)
+        else if (card[i] / 13 == 1)
         {
-            printf("黑桃%02d\t", i % 13 + 1); /* code */
+            printf("黑桃%02d\t", card[i]% 13 + 1); /* code */
         }
-        else if (i/13==2)
+        else if (card[i]/ 13 == 2)
         {
-            printf("方块%02d\t", i % 13 + 1); /* code */
+            printf("方块%02d\t", card[i]% 13 + 1); /* code */
         }
-        else if (i/13==3)
+        else if (card[i] / 13 == 3)
         {
-            printf("梅花%02d\t", i % 13 + 1); /* code */
+            printf("梅花%02d\t", card[i]% 13 + 1); /* code */
         }
-        else if (i/13==3)
+        else if (card[i]/ 13 == 3)
         {
-            printf("梅花%02d\t", i % 13 + 1); /* code */
+            printf("梅花%02d\t", card[i]% 13 + 1); /* code */
         }
-        else if (i==52)
+        else if (card[i] == 52)
         {
             printf("大王\t"); /* code */
         }
-        else if (i==53)
+        else if (card[i] == 53)
         {
             printf("小王\t"); /* code */
         }
-        if ((i+1)%13==0)
+        if ((i+1) % 17 == 0)
         {
             printf("\n"); /* code */
         }
-
     }
 }
